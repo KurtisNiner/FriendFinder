@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+
+    <title>Friend Finder Survery</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Survey Questions</h1>
+            <h2>
+                <strong>About You</strong>
+            </h2>
+            <div>
+                <hr>
+                <h3>Name (required)</h3>
+                <input type="text" id="nameInput" class="form-control" required>
+                <h3>Link A Picture Of Yourself (required)</h3>
+                <input type="text" id="photo" class="form-control" required>
+                <hr>
+            </div>
+            </h2>
+        </div>
+        <div class="container">
+            <div class="jumbotron">
+                <h3>
+                    <strong>#1</strong>
+                </h3>
+                <h4>Which pokemon is your favorite?</h4>
+                <select class="chosen-select" id="question1" style="display: none;">
+                    <option value></option>
+                    <option value="1">1 (WTF is a pokemon?)</option>
+                    <option value="2">Bulbasaur</option>
+                    <option value="3">Squrtle</option>
+                    <option value="4">Charmander</option>
+                    <option value="5">Pikachu</option>
+                </select>
+                <div class="chosen-container chosen-container-single" style="width: 200px;" title-id="question1Choice">
+                    <a class="chosen-single chosen-default">
+                        <span>Selection List</span>
+                        <div>
+                            <b></b>
+                        </div>
+                    </a>
+                    <div class="chosen-drop">
+                        <div class="chosen-search">
+                            <input type="text" autocomplete="off">
+                        </div>
+                        <ul class="chosen-results">
+                            <li class="active-result" data-option-array-index="1" style>1 (WTF is a pokemon</li>
+                            <li class="active-result" data-option-array-index="2" style>Bulbasaur</li>
+                            <li class="active-result" data-option-array-index="3" style>Squrtle</li>
+                            <li class="active-result" data-option-array-index="4" style>Charmander</li>
+                            <li class="active-result" data-option-array-index="5" style>Pikachu</li>
+                        </ul>
+                    </div>
+                </div>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
