@@ -11,7 +11,7 @@ module.exports = function(app){
     })
 
     app.post("/api/friends", function(req,res){
-        var friendInput = req.body;
+        // var friendInput = req.body;
         //trying to figure out the math logic for how to choose the best friend 
         //show their picture
         console.log(JSON.stringify(friendsData));
