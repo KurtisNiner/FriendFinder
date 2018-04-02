@@ -29,7 +29,7 @@
                 <h3>Name (required)</h3>
                 <input type="text" id="nameInput" class="form-control" required>
                 <h3>Link A Picture Of Yourself (required)</h3>
-                <input type="text" id="photo" class="form-control" required>
+                <input type="text" id="photoInput" class="form-control" required>
                 <hr>
             </div>
             </h2>
@@ -212,10 +212,39 @@
         </div>
     </div>
     <!-- this is where the java script goes to add the information to the friends array in friends.js -->
+    
     <script type="text/javascript">
-        $(document).ready(ready(function(){
-            $("select)".)
-        })
+       $("#submitSurvey").on("click", function(event){
+           event.preventDefault();
+            //takes in user selection
+            var userChoice = {
+                name:$("#nameInput").val().trim(),
+                photo:$("#photoInput").val().trim(),
+                scores: [
+                    $("question1").val().trim(),
+                    $("question2").val().trim(),
+                    $("question3").val().trim(),
+                    $("question4").val().trim(),
+                    $("question5").val().trim(),
+                    $("question6").val().trim(),
+                    $("question7").val().trim(),
+                    $("question8").val().trim(),
+                    $("question9").val().trim(),
+                    $("question10").val().trim(),
+                ]
+            };
+            console.log("your data is " + JSON.stringify(userChoice));
+
+            //add to friends.js
+
+            $.post("/api/frineds", userChoice)
+            .done(function(data){
+                console.log("your data is " + JSON.stringify(data))
+
+            })
+           
+
+       })
     </script>
 </body>
 
