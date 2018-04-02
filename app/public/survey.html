@@ -189,9 +189,9 @@
                 <div class="input-field">
                     <select id="question6">
                         <option value="" disabled selected>Choose Here</option>
-                        <option value="1">(WTF is a pokemon?</option>
-                        <option value="2">Bulbasaur</option>
-                        <option value="3">Gross!</option>
+                        <option value="1"> tea</option>
+                        <option value="2">coffee</option>
+                        <option value="3">hate both!</option>
                         <option value="4">I like both</option>
                         <option value="5">Frappe</option>
                     </select>
@@ -221,16 +221,16 @@
                 name:$("#nameInput").val().trim(),
                 photo:$("#photoInput").val().trim(),
                 scores: [
-                    $("question1").val().trim(),
-                    $("question2").val().trim(),
-                    $("question3").val().trim(),
-                    $("question4").val().trim(),
-                    $("question5").val().trim(),
-                    $("question6").val().trim(),
-                    $("question7").val().trim(),
-                    $("question8").val().trim(),
-                    $("question9").val().trim(),
-                    $("question10").val().trim(),
+                    $("question1").val(),
+                    $("question2").val(),
+                    $("question3").val(),
+                    $("question4").val(),
+                    $("question5").val(),
+                    $("question6").val(),
+                    $("question7").val(),
+                    $("question8").val(),
+                    $("question9").val(),
+                    $("question10").val(),
                 ]
             };
             console.log("your data is " + JSON.stringify(userChoice));
