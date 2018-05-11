@@ -4,73 +4,66 @@ var path = require("path");
 var friends = require("../data/friends.js");
 
 //routing
-module.exports = function(app){
+module.exports = function (app) {
 
-    app.get("/api/friends", function(req,res){
+    app.get("/api/friends", function (req, res) {
         res.json(friends);
         // console.log(data)
     })
 
-    app.post("/api/friends", function(req,res){
+    app.post("/api/friends", function (req, res) {
         //create a variable to get the incoming data and be able to work with it.
         var results = req.body;
-        console.log(results);
+        // console.log(results);
         var friend = {
             Name: results.name,
             Photo: results.img,
-            Responses: [results.q1,results.q2,results.q3,results.q4,results.q5,results.q6,results.q7,results.q8,results.q9,results.q10],
-            Matches: ""
+            Responses: [results.q1, results.q2, results.q3, results.q4, results.q5, results.q6, results.q7, results.q8, results.q9, results.q10],
         };
-        //add up all the answers to get a total amount
-        // for (var i = 0; i < friends.length; i++) {
-        //     friend.Score += parseInt(friend.Responses[i]); 
-         
-        //
-        //finds difference in friends answers 
-            var maxDifference = 51;
+        
+        //finds difference in friends answers, give a bigger number than possible, so we can compare
+        var maxDifference = 100;
 
         //then loop through the friend array
-            for(var i = 0; i < friends.length; i++){
-
-        //set a variable equal to zero so we can compare
-                var scoreDifference = 0;
+        for (var i = 0; i < friends.length; i++) {
+            console.log(friends[i].Responses);
+            //set a variable equal to zero so we can compare
+            var scoreDifference = 0;
 
             //go through the responses that was given by the user 
-            //and figure out who would match based on the answers given
-                for(var j= 0; j < results.Responses.length; j++){
-                    
-                    var myScore = parseInt(results.Responses[j]);
+            //and figure out who would match based on the answers given by other user
+            for (var j = 0; j < friends[i].Responses.length; j++) {
 
-                    // console.log(myScore);
-                }
+                var myResult = parseInt(friend.Responses[j]);
+                // console.log(myScore);
 
+                var friendResult = parseInt(friends[i].Responses[j]);
+                // console.log(friendResult);
 
-            //     var x = parseInt(friend.Responses[j]);
-            //     var y = parseInt(friends[i].Responses[j]);
-            //     //tells absolute value 
-            //     var diff = Math.abs(x - y);
+                //find the absolute value of the difference      
+                var resultDifference = Math.abs(myResult - friendResult);
 
-            // friends[i].totalDiff += diff;
-            var myScore = parseInt(friend[i].Responses[j]);
-            console.log(myScore);
+                //score difference plus or equal to resultDifference
+                scoreDifference += resultDifference;
+            }
+            //if the score difference is less thant the max difference that the 
+            //match can be, then make that person the match 
+            if (scoreDifference < maxDifference) {
+ 
+                maxDifference = scoreDifference;
 
-            // }
-
-
+                //create a variable that shows your match 
+                var yourMatch = friends[i];
+            }
         }
         //push friend info to the friends json info
         friends.push(friend);
-        console.log(friends);
-        //trying to figure out the math logic for how to choose the best friend 
-        //show their picture
-        res.redirect("/api/friends");
+        console.log(yourMatch);
+        
+        // res.redirect("/api/friends");
+        res.json(yourMatch);
 
         //take information from friends api and do logic to find friend
-        
-      
 
-
-
-        // console.log(JSON.stringify(friendInput));
     })
 }
