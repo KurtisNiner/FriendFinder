@@ -63,7 +63,5 @@ module.exports = function (app) {
         // res.redirect("/api/friends");
         res.json(yourMatch);
 
-        //take information from friends api and do logic to find friend
-
     })
 }

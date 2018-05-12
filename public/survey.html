@@ -9,7 +9,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/style.css">    
+    <link rel="stylesheet" href="../css/style.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
@@ -198,33 +198,51 @@
         </button>
         </form>
     </div>
-    
+
     <div class="modal fade" id="friendMatchModal" role="dialog">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-              <h4 class="modal-title" id="yourFriendName"> 
-                  <!-- freind name goes here -->
-              </h4>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                    <h4 class="modal-title" id="yourFriendName">
+                        <!-- freind name goes here -->
+                    </h4>
+                </div>
+                <div class="modal-body" id="yourFriendImage">
+                    <!-- your frined image goes here -->
+                </div>
+                <!-- <div class="modal-footer"> -->
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
             </div>
-            <div class="modal-body" id="yourFriendImage">
-              <!-- your frined image goes here -->
-            </div>
-            <!-- <div class="modal-footer"> -->
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
+    </div>
 
+    <!-- modal -->
     <script type="text/javascript">
-        $(document).ready(function(){
-            $("#submitSurvey").click(function(){
-                $("#friendMatchModal").modal("show");
-            })
+        $(document).ready(function () {
+            $("#submitSurvey").on("click", function (data) {
+                app.get("/api/friends", function (req, res) {
+                    // console.log(data);
+                    //create variables that assign variables to the data returned from the GET
+                    var myFriendName = data.Name[i];
+                    console.log(myFriendName);
+                    var myFriendImage = data.Photo[i];
+                    console.log(myFriendImage);
+
+                  $("#yourFriendName").append(myFriendName);
+                  $("#yourFriendImage").append(myFriendImage);
+                  
+                  $("#friendMatchModal").modal("show");  
+                
+
+                })
+
+            });
+
         })
+
     </script>>
 
 

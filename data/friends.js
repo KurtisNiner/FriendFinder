@@ -3,7 +3,7 @@
 var friends = [
     {
         "Name": "Kurtis",
-        "Photo": "Carpenter",
+        "Photo": "IMG",
         "Responses": [
             "2",
             "2",
