@@ -219,21 +219,25 @@
     </div>
     </div>
 
-    <!-- modal -->
+    <!-- modal --> 
+    <!-- couldnt get the modal to work, but i have the code that i have tried on. -->
     <script type="text/javascript">
         $(document).ready(function () {
             $("#submitSurvey").on("click", function (data) {
                 app.get("/api/friends", function (req, res) {
                     // console.log(data);
+
                     //create variables that assign variables to the data returned from the GET
                     var myFriendName = data.Name[i];
                     console.log(myFriendName);
                     var myFriendImage = data.Photo[i];
                     console.log(myFriendImage);
-
+                    
+                    //this is supposed to append the variables that i created to the html id's 
                   $("#yourFriendName").append(myFriendName);
                   $("#yourFriendImage").append(myFriendImage);
                   
+                  //this is supposed to show the modal 
                   $("#friendMatchModal").modal("show");  
                 
 
