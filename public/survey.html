@@ -225,12 +225,12 @@
         $(document).ready(function () {
             $("#submitSurvey").on("click", function (data) {
                 app.get("/api/friends", function (req, res) {
-                    // console.log(data);
-
+                    console.log(data.Name);
+                    
                     //create variables that assign variables to the data returned from the GET
-                    var myFriendName = data.Name[i];
+                    var myFriendName = data.Name[0];
                     console.log(myFriendName);
-                    var myFriendImage = data.Photo[i];
+                    var myFriendImage = data.Photo[0];
                     console.log(myFriendImage);
                     
                     //this is supposed to append the variables that i created to the html id's 
