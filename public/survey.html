@@ -199,6 +199,7 @@
         </form>
     </div>
 
+    <!-- modal -->
     <div class="modal fade" id="friendMatchModal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -223,9 +224,10 @@
     <!-- couldnt get the modal to work, but i have the code that i have tried on. -->
     <script type="text/javascript">
         $(document).ready(function () {
+            console.log('hi');
             $("#submitSurvey").on("click", function (data) {
                 $.get("/api/friends", function (req, res) {
-                    console.log(data);
+                    console.log(res);
                     
                     //create variables that assign variables to the data returned from the GET
                     // var myFriendName = data[0].Name;
@@ -235,8 +237,8 @@
                     // console.log(myFriendImage);
                     
                     //this is supposed to put variables in the html the variables that i created to the html id's 
-                  $("#yourFriendName").html(data[0].Name);
-                  $("#yourFriendImage").html(data[0].Photo);
+                  $("#yourFriendName").html(res[0].Name);
+                  $("#yourFriendImage").html(res[0].Photo);
                   
                   //this is supposed to show the modal 
                   $("#friendMatchModal").modal("show");  

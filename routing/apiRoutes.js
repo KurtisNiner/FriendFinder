@@ -21,6 +21,8 @@ module.exports = function (app) {
             Responses: [results.q1, results.q2, results.q3, results.q4, results.q5, results.q6, results.q7, results.q8, results.q9, results.q10],
         };
         
+        //logic for the friends math
+
         //finds difference in friends answers, give a bigger number than possible, so we can compare
         var maxDifference = 100;
 
@@ -29,6 +31,7 @@ module.exports = function (app) {
             // console.log(friends[i].Responses);
             //set a variable equal to zero so we can compare
             var scoreDifference = 0;
+
 
             //go through the responses that was given by the user 
             //and figure out who would match based on the answers given by other user
