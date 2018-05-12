@@ -26,7 +26,7 @@ module.exports = function (app) {
 
         //then loop through the friend array
         for (var i = 0; i < friends.length; i++) {
-            console.log(friends[i].Responses);
+            // console.log(friends[i].Responses);
             //set a variable equal to zero so we can compare
             var scoreDifference = 0;
 
@@ -58,7 +58,7 @@ module.exports = function (app) {
         }
         //push friend info to the friends json info
         friends.push(friend);
-        console.log(yourMatch);
+        // console.log(yourMatch);
         
         // res.redirect("/api/friends");
         res.json(yourMatch);
